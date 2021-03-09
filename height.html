@@ -20,12 +20,21 @@
 
     <script src="static/general.js"></script>
 
-    <div id="llave" style="left:50%;margin-left:-100px;width:200px;height:200px;position:fixed;">
+    <div id="llave" style="left:50%;margin-left:-100px;width:200px;height:200px;position:fixed;z-index:1;">
     </div>
 
 
     <div id="puerta" style="left:50%;margin-left:-100px;width:200px;height:200px;position:fixed;top:0;">
     </div>
+
+
+
+
+
+    <img src="static/help.png" id="help"
+        style="cursor:pointer;width:100px;position:fixed;right:10px;bottom:10px;display:none;"
+        onclick="alert('Reduce la altura de la ventana hasta que la llave abra al puerta')">
+
 
 
     <script>
@@ -70,15 +79,21 @@
 
             if (pos_y2 >= pos_y1 && !actived) {
                 actived = true;
-                $('#llave').hide();
 
-                $('#puerta').addClass('puerta_abierta').click(function () {
-                    nextStage();
-                });
+
+                openDoor();
             }
 
 
         });
+
+
+
+        var minutes = 5;
+        setTimeout(function () {
+            $('#help').fadeIn('slow');
+        }, 1000 * (minutes * 60));
+
 
     </script>
 

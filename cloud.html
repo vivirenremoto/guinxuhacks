@@ -29,6 +29,11 @@
     </div>
 
 
+    <img src="static/help.png" id="help"
+        style="cursor:pointer;width:100px;position:fixed;right:10px;bottom:10px;display:none;"
+        onclick="alert('Redimensiona el ancho del navegador para desplazar la nube')">
+
+
     <script>
 
         var pos_x;
@@ -50,10 +55,11 @@
                 'top': $('#puerta').css('top')
             }, 1000, function () {
 
-                $('#llave').hide();
-                $('#puerta').addClass('puerta_abierta').click(function () {
-                    nextStage();
-                });
+
+
+
+
+                openDoor();
             });
         });
 
@@ -68,6 +74,12 @@
             $("#nube").css('left', pos_x - diff);
         });
 
+
+
+        var minutes = 5;
+        setTimeout(function () {
+            $('#help').fadeIn('slow');
+        }, 1000 * (minutes * 60));
     </script>
 
 

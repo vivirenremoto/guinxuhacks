@@ -6,6 +6,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 
+
+
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+
+
     <link href="static/main.css" rel="stylesheet">
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"
@@ -17,29 +22,69 @@
 <body>
 
     <style>
+        * {
+            font-family: 'VT323', monospace;
+            text-transform: uppercase;
+        }
+
         body {
             text-align: center;
+            font-size: 30px;
+        }
+
+        button {
+            cursor: pointer;
+            font-weight: bold;
+            padding: 5px 10px;
+            border: 5px black solid;
+            background: none;
+            color: black;
+            font-size: 30px;
         }
     </style>
+
+
 
     <script src="static/general.js"></script>
 
     <h1>Gintxu Hacks</h1>
 
 
-    <p>La mécanica del juego consiste en buscar la llave, seleccionarla y abrir la puerta para ir al siguiente nivel.
+    <p>Cada nivel del juego es un puzzle en el que tienes que buscar <u>una llave</u> <img src="static/llave.png"
+            valign="absmiddle" width="25" height="25"> para abrir <u>la puerta</u> <img src="static/puerta.png"
+            valign="absmiddle" width="25" height="25"> y avanzar al siguiente nivel.
     </p>
 
-    <p>A diferencia de otros juegos en este tienes que jugar haciendo scroll por la página o redimensionando el tamaño
-        de la ventana del navegador.</p>
+    <p>A diferencia de otros juegos en este tienes que "hackear" el juego, en algunos niveles necesitarás
+        desplazarte por la página o
+        redimensionar la ventana del navegador en horizontal o vertical.</p>
 
-    <p><button
-            style="font-weight:bold;padding:5px;border:5px black solid;background:none;color:black;font-size:15px;">ENTENDIDO</button>
+    <div style="background-size:cover;display:inline-block;position:relative;width:100px;height:100px;">
+        <div id="llave" style="background-size:cover;display:inline-block;position:relative;width:100px;height:100px;">
+        </div>
+    </div>
+
+    <div id="puerta" style="background-size:cover;display:inline-block;position:relative;width:100px;height:100px;">
+    </div>
+
+
+    <!--<p><button>ENTENDIDO</button>-->
     </p>
 
     <script>
+        /*
         $('button').click(function () {
             nextStage();
+        });
+        */
+
+        var actived = false;
+
+        $('#llave').click(function () {
+            if (!actived) {
+                actived = true;
+                openDoor();
+            }
         });
     </script>
 

@@ -33,6 +33,11 @@
 
 
 
+        <img src="static/help.png" id="help"
+            style="cursor:pointer;width:100px;position:fixed;right:10px;bottom:10px;display:none;"
+            onclick="alert('Haz clic en la llave y desplazate hasta la puerta')">
+
+
         <script>
             var pos_x;
             var pos_y;
@@ -55,7 +60,7 @@
 
                 actived = 1;
 
-                $('#llave').css('position', 'fixed');
+                $('#llave').css('position', 'fixed').css('top', parseInt($('#llave').css('top')) + 20);
             });
 
 
@@ -75,14 +80,10 @@
 
                     if (pos_y2 >= pos_y1 && actived == 1) {
                         actived = 2;
-                        $('#llave').hide();
-                        $('#puerta').addClass('puerta_abierta').click(function () {
-
-                            nextStage();
 
 
+                        openDoor();
 
-                        });
                     }
 
                 }
@@ -106,6 +107,11 @@
             }, 1);
             */
 
+
+            var minutes = 5;
+            setTimeout(function () {
+                $('#help').fadeIn('slow');
+            }, 1000 * (minutes * 60));
         </script>
 
 
