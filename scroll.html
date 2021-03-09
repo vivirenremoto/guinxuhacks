@@ -51,16 +51,19 @@
             var actived = false;
 
 
+            $('#llave').click(function () {
+
+                actived = 1;
+
+                $('#llave').css('position', 'fixed');
+            });
+
+
             $(window).scroll(function () {
 
 
                 var current_scroll = $(window).scrollTop();
 
-                if (current_scroll == 0) {
-                    actived = 1;
-
-                    $('#llave').css('position', 'fixed');
-                }
 
                 if (actived == 1) {
 

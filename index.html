@@ -15,35 +15,72 @@
 <body>
 
 
-    <iframe id="game" src="scroll.html" style="position:fixed;border:0;width:100%;height:100%;left:0;top:0;"></iframe>
+    <div id="content"></div>
 
     <script>
-        var current_stage = 0;
         var stages = ['scroll', 'resize', 'height', 'dark', 'water'];
 
 
+        var current_stage = parseInt(window.localStorage.getItem('stage'));
 
+
+
+        if (isNaN(current_stage)) {
+            current_stage = 0;
+        }
+
+
+
+
+
+
+        function nextStage() {
+
+
+
+
+
+
+            if (current_stage < stages.length) {
+
+
+                window.localStorage.setItem('stage', current_stage);
+
+
+
+                $('#content').html('<iframe id="game" src="' + stages[current_stage] + '.html" style="position:fixed;border:0;width:100%;height:100%;left:0;top:0;"></iframe>');
+
+            } else {
+                alert('¡ENHORABUENA! HAS COMPLETADO EL JUEGO');
+
+
+                Storage.removeItem('stage');
+
+                location.reload();
+
+            }
+
+
+
+        }
 
 
         $('body').bind('complete', function () {
 
 
 
-
             current_stage += 1;
-
-            if (current_stage < stages.length) {
-                $('#game').attr('src', stages[current_stage] + '.html');
-
-            } else {
-                alert('¡ENHORABUENA! HAS COMPLETADO EL JUEGO');
-            }
+            nextStage();
 
 
 
         });
 
 
+
+
+
+        nextStage();
 
     </script>
 
