@@ -3,4 +3,4 @@
 #puerta{background-image:url('puerta.png');background-size:200px 200px;background-repeat:no-repeat;background-position:center center;}
 
 
-.puerta_abierta{background-image:url('puerta_abierta.png') !important;}
+.puerta_abierta{background-image:url('puerta_abierta.png') !important;cursor:pointer;}
