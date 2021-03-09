@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Guintxu Secrets</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+
+    <link href="static/main.css" rel="stylesheet">
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+
+</head>
+
+<body>
+
+
+    <div style="width:100%;height:5000px;">
+
+
+        <script src="static/general.js"></script>
+
+
+
+        <div id="llave" style="width:200px;height:200px;position:fixed;"></div>
+
+
+        <div id="puerta" style="width:200px;height:200px;position:absolute;">
+        </div>
+
+
+
+        <script>
+            var pos_x;
+            var pos_y;
+
+
+
+
+
+            pos_x = (screen_width / 2) - 100;
+            pos_y = (screen_height / 2) - 100;
+
+            $('#llave').css('left', pos_x).css('top', 200).css('position', 'absolute');
+            $('#puerta').css('left', pos_x).css('top', pos_y);
+
+
+            var actived = false;
+
+
+            $(window).scroll(function () {
+
+
+                var current_scroll = $(window).scrollTop();
+
+                if (current_scroll == 0) {
+                    actived = 1;
+
+                    $('#llave').css('position', 'fixed');
+                }
+
+                if (actived == 1) {
+
+                    var pos_y1 = parseInt($('#puerta').css('top'));
+
+                    var pos_y2 = current_scroll + parseInt($('#llave').css('top'));
+
+
+
+                    if (pos_y2 >= pos_y1 && actived == 1) {
+                        actived = 2;
+                        $('#llave').hide();
+                        $('#puerta').addClass('puerta_abierta').click(function () {
+
+                            nextStage();
+
+
+
+                        });
+                    }
+
+                }
+
+
+            });
+
+
+
+
+            $([document.documentElement, document.body]).delay(1000).animate({
+                scrollTop: $("#puerta").offset().top - 300
+            }, 2000);
+
+
+
+
+            /*
+            $([document.documentElement, document.body]).animate({
+                scrollTop: $("#puerta").offset().top - 300
+            }, 1);
+            */
+
+        </script>
+
+
+
+</body>
+
+</html>
