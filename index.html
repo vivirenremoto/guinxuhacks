@@ -18,7 +18,7 @@
     <div id="content"></div>
 
     <script>
-        var stages = ['scroll', 'resize', 'height', 'dark', 'water'];
+        var stages = ['scroll', 'cloud', 'height', 'dark', 'water'];
 
 
         var current_stage = parseInt(window.localStorage.getItem('stage'));
@@ -44,9 +44,6 @@
             if (current_stage < stages.length) {
 
 
-                window.localStorage.setItem('stage', current_stage);
-
-
 
                 $('#content').html('<iframe id="game" src="' + stages[current_stage] + '.html" style="position:fixed;border:0;width:100%;height:100%;left:0;top:0;"></iframe>');
 
@@ -54,12 +51,16 @@
                 alert('¡ENHORABUENA! HAS COMPLETADO EL JUEGO');
 
 
-                Storage.removeItem('stage');
+                current_stage = 0;
 
                 location.reload();
 
             }
 
+
+
+
+            window.localStorage.setItem('stage', current_stage);
 
 
         }
