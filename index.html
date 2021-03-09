@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title></title>
+    <title>Gintxu Hacks</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 
@@ -18,7 +18,7 @@
     <div id="content"></div>
 
     <script>
-        var stages = ['scroll', 'water', 'cloud', 'dark', 'height'];
+        var stages = ['intro', 'scroll', 'water', 'cloud', 'dark', 'height'];
 
 
         var current_stage = parseInt(window.localStorage.getItem('stage'));
@@ -30,7 +30,9 @@
         }
 
 
-
+        if (document.location.href.indexOf('test') > -1) {
+            current_stage = 0;
+        }
 
 
 
