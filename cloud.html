@@ -19,13 +19,13 @@
 
 
     <div id="nube"
-        style="z-index:3;width:200px;height:200px;position:fixed;background:url('static/nube.png');background-size:200px 200px;">
+        style="z-index:3;width:200px;height:200px;margin-left:-100px;position:fixed;background:url('static/nube.png');background-size:200px 200px;">
     </div>
 
     <div id="llave" style="z-index:2;width:200px;height:200px;position:absolute;"></div>
 
 
-    <div id="puerta" style="z-index:1;width:200px;height:200px;position:fixed;bottom:0;">
+    <div id="puerta" style="z-index:1;width:200px;height:200px;margin-left:-100px;position:fixed;bottom:0;">
     </div>
 
 
@@ -46,7 +46,7 @@
 
 
         $('#nube').css('left', pos_x).css('top', pos_y);
-        $('#llave').css('left', pos_x).css('top', pos_y);
+        $('#llave').css('left', pos_x - 100).css('top', pos_y);
         $('#puerta').css('left', pos_x);
 
 
