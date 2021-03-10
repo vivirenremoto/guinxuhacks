@@ -72,13 +72,13 @@
 
 
     <div id="arbol"
-        style="bottom:-10px;z-index:3;width:500px;height:500px;position:fixed;background:url('../static/arbol.png');background-size:cover;background-position: 0 100px;background-repeat: no-repeat;">
+        style="cursor:not-allowed;bottom:-10px;z-index:3;width:500px;height:500px;position:fixed;background:url('../static/arbol.png');background-size:cover;background-position: 0 100px;background-repeat: no-repeat;">
     </div>
 
     <div id="llave" style="z-index:2;width:200px;height:200px;position:fixed;"></div>
 
 
-    <div id="puerta" style="z-index:4;width:200px;height:200px;margin-left:-100px;position:fixed;bottom:0;">
+    <div id="puerta" style="width:200px;height:200px;position:fixed;bottom:0;">
     </div>
 
 
@@ -106,14 +106,14 @@
         pos_y = (screen_height / 3);
 
 
-        $('#arbol').css('left', pos_x - 500);//.css('top', pos_y);
-        $('#llave').css('left', pos_x - 450).css('bottom', parseInt($('#arbol').css('bottom')) + 250);
+        $('#arbol').css('left', pos_x - 450);//.css('top', pos_y);
+        $('#llave').css('left', pos_x - 400).css('bottom', parseInt($('#arbol').css('bottom')) + 250);
         $('#puerta').css('left', pos_x);
 
 
         $('#llave').click(function () {
             $(this).animate({
-                'top': $('#puerta').css('top')
+                'left': $('#puerta').css('left')
             }, 1000, function () {
 
 
@@ -158,7 +158,17 @@
 
                             }, 2000, function () {
                                 $('#llave').css('z-index', 3).click(function () {
-                                    openDoor();
+
+
+
+                                    $('#llave').animate({
+                                        left: $('#puerta').css('left'),
+                                    }, 1000, function () {
+                                        openDoor();
+                                    });
+
+
+
                                 });
 
                             });
