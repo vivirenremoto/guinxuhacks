@@ -18,7 +18,16 @@
 <body>
 
 
-    <div style="width:100%;height:5000px;">
+    <style>
+        body {
+            background-image: linear-gradient(white, black);
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+
+
+    <div style="width:100%;height:3000px;">
 
 
         <script src="../static/general.js"></script>
@@ -102,7 +111,9 @@
 
             });
 
-
+            $([document.documentElement, document.body]).animate({
+                scrollTop: 0
+            }, 1);
 
 
             $([document.documentElement, document.body]).delay(1000).animate({
