@@ -65,7 +65,9 @@
     <script>
 
         $('#btn_retry').click(function () {
-            document.location = 'index.html/?restart';
+            var current_stage = 0;
+            window.localStorage.setItem('stage', current_stage);
+            nextStage();
         });
 
 
