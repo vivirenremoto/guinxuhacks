@@ -13,6 +13,7 @@
 
     <link rel="prefetch" href="static/music.mp3" />
     <link rel="prefetch" href="static/puerta.mp3" />
+    <link rel="prefetch" href="static/done.mp3" />
     <link rel="prefetch" href="static/llave.png" />
     <link rel="prefetch" href="static/puerta.png" />
     <link rel="prefetch" href="static/puerta_abierta.png" />
@@ -38,6 +39,12 @@
         <source src="static/puerta.mp3" type="audio/mp3">
     </audio>
 
+
+
+    <audio id="sonido_done">
+        <source src="static/done.mp3" type="audio/mp3">
+    </audio>
+
     <script>
 
         var stages = ['intro', 'scroll', 'water', 'cloud', 'dark', 'height', 'end'];
@@ -49,6 +56,7 @@
 
 
         var sonido_puerta = document.getElementById('sonido_puerta');
+        var sonido_done = document.getElementById('sonido_done');
 
 
 
@@ -106,6 +114,7 @@
         $('body').bind('complete', function () {
 
 
+            sonido_done.play();
 
             current_stage += 1;
             nextStage();
