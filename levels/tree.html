@@ -125,75 +125,79 @@
         });
 
 
+        setTimeout(function () {
 
 
-        $(window).resize(function () {
-            if (!shake) {
-                shake = true;
+            $(window).resize(function () {
+                if (!shake) {
+                    shake = true;
 
 
-                touches_current++;
+                    touches_current++;
 
 
-                if (!actived) {
-                    sonido_shake.currentTime = 0;
-                    sonido_shake.play();
+                    if (!actived) {
+                        sonido_shake.currentTime = 0;
+                        sonido_shake.play();
 
 
-                    $('#llave').animate({
-                        'left': '-=25px'
-                    }, 1000, function () {
+                        $('#llave').animate({
+                            'left': '-=25px'
+                        }, 1000, function () {
 
 
-                        if (touches_current == touches_max) {
-                            actived = true;
+                            if (touches_current == touches_max) {
+                                actived = true;
 
+
+                                $('#arbol').removeClass('shake');
+                                $('#llave').removeClass('shake');
+
+                                $('#llave').animate({
+                                    //'left': $('#puerta').offset().left,
+                                    'top': $('#puerta').offset().top,
+
+                                }, 1000, function () {
+                                    $('#llave').css('z-index', 3).click(function () {
+
+
+
+                                        $('#llave').animate({
+                                            left: $('#puerta').css('left'),
+                                        }, 1000, function () {
+                                            openDoor();
+                                        });
+
+
+
+                                    });
+
+                                });
+                            }
+
+
+                        });
+
+                        $('#arbol').addClass('shake');
+
+                        $('#llave').addClass('shake');
+
+
+                        setTimeout(function () {
+                            shake = false;
+                            sonido_shake.pause();
 
                             $('#arbol').removeClass('shake');
                             $('#llave').removeClass('shake');
-
-                            $('#llave').animate({
-                                //'left': $('#puerta').offset().left,
-                                'top': $('#puerta').offset().top,
-
-                            }, 1000, function () {
-                                $('#llave').css('z-index', 3).click(function () {
+                        }, 2000);
 
 
-
-                                    $('#llave').animate({
-                                        left: $('#puerta').css('left'),
-                                    }, 1000, function () {
-                                        openDoor();
-                                    });
-
-
-
-                                });
-
-                            });
-                        }
-
-
-                    });
-
-                    $('#arbol').addClass('shake');
-
-                    $('#llave').addClass('shake');
-
-
-                    setTimeout(function () {
-                        shake = false;
-                        sonido_shake.pause();
-
-                        $('#arbol').removeClass('shake');
-                        $('#llave').removeClass('shake');
-                    }, 2000);
-
-
+                    }
                 }
-            }
-        });
+            });
+
+
+        }, 2000);
 
 
 
