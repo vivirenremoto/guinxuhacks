@@ -29,7 +29,7 @@ function openDoor() {
 
 
 function share() {
-    var share_url = 'https://vivirenremoto.github.io/gintxuhacks/';
+    var share_url = 'https://vivirenremoto.github.io/guinxuhacks/';
     window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + '&tw_p=tweetbutton&url=' + encodeURIComponent(share_url));
 }
 
