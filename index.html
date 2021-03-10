@@ -62,9 +62,8 @@
 
 
         if (document.location.href.indexOf('?restart') > -1) {
-            current_stage = 0;
-            window.localStorage.setItem('stage', current_stage);
-            document.location = '/';
+            window.localStorage.setItem('stage', 0);
+            document.location.reload();
         }
 
 
