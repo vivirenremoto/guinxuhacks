@@ -29,8 +29,9 @@ function openDoor() {
 
 
 function share() {
+    var share_title = 'Guinxu Hacks - Juego';
     var share_url = 'https://vivirenremoto.github.io/guinxuhacks/';
-    window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + '&tw_p=tweetbutton&url=' + encodeURIComponent(share_url));
+    window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(share_title) + '&tw_p=tweetbutton&url=' + encodeURIComponent(share_url));
 }
 
 
