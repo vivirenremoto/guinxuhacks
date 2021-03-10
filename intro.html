@@ -85,8 +85,10 @@
     <p><button onclick="share()">COMPARTIR</button>
     </p>
 
-    <div style="background-size:cover;display:inline-block;position:relative;width:100px;height:100px;">
-        <div id="llave" style="background-size:cover;display:inline-block;position:relative;width:100px;height:100px;">
+    <div
+        style="margin-right:80px;background-size:cover;display:inline-block;position:relative;width:100px;height:100px;">
+        <div id="llave"
+            style="background-size:cover;display:inline-block;position:relative;width:100px;height:100px;position:fixed;">
         </div>
     </div>
 
@@ -94,8 +96,7 @@
     </div>
 
 
-    <!--<p><button>ENTENDIDO</button>-->
-    </p>
+
 
 
     <img src="static/help.png" id="help"
@@ -105,18 +106,23 @@
 
 
     <script>
-        /*
-        $('button').click(function () {
-            nextStage();
-        });
-        */
+
 
         var actived = false;
 
         $('#llave').click(function () {
             if (!actived) {
                 actived = true;
-                openDoor();
+
+                $('#llave').css('position', 'fixed').animate({
+                    left: $('#puerta').offset().left,
+                    top: $('#puerta').offset().top,
+                }, 1000, function () {
+
+                    openDoor();
+                });
+
+
             }
         });
 
