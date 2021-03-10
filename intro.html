@@ -60,7 +60,7 @@
 
     <p>A diferencia de otros juegos en este tienes que "hackear" el juego, en algunos niveles necesitarás
         desplazarte por la página o
-        redimensionar la ventana del navegador en horizontal o vertical.</p>
+        cambiar el tamaño de la ventana del navegador en horizontal o vertical.</p>
 
     <p>Usa la imaginación para superar los niveles, si te quedas atascado a los 5 minutos aparecerá <u>una ayuda</u>
         <img src="static/help.png" valign="absmiddle" width="25" height="25">.
@@ -82,6 +82,13 @@
     <!--<p><button>ENTENDIDO</button>-->
     </p>
 
+
+    <img src="static/help.png" id="help"
+        style="cursor:pointer;width:100px;position:fixed;right:10px;bottom:10px;display:none;"
+        onclick="alert('Toca la llave para abrir la puerta y la puerta para entrar')">
+
+
+
     <script>
         /*
         $('button').click(function () {
@@ -97,6 +104,14 @@
                 openDoor();
             }
         });
+
+
+
+        setTimeout(function () {
+            $('#help').fadeIn('slow');
+        }, 1000 * 10);
+
+
     </script>
 
 
