@@ -34,10 +34,10 @@
 
 
 
-        <div id="llave" style="z-index:1;width:200px;height:200px;position:fixed;"></div>
+        <div id="llave" style="z-index:1;left:50%;margin-left:-100px;width:200px;height:200px;position:fixed;"></div>
 
 
-        <div id="puerta" style="width:200px;height:200px;position:absolute;">
+        <div id="puerta" style="width:200px;left:50%;margin-left:-100px;height:200px;position:absolute;">
         </div>
 
 
@@ -48,7 +48,6 @@
 
 
         <script>
-            var pos_x;
             var pos_y;
             var actived = false;
             var key_show = false;
@@ -56,12 +55,10 @@
 
 
 
-
-            pos_x = (screen_width / 2) - 100;
             pos_y = (screen_height / 2) - 100;
 
-            $('#llave').css('left', pos_x).css('top', 200).css('position', 'absolute');
-            $('#puerta').css('left', pos_x).css('top', pos_y);
+            $('#llave').css('top', 200).css('position', 'absolute');
+            $('#puerta').css('top', pos_y);
 
 
 
@@ -76,14 +73,22 @@
 
 
                     $([document.documentElement, document.body]).animate({
-                        scrollTop: $("#puerta").offset().top
-                    }, 2000);
+                        scrollTop: $("#puerta").offset().top - 200
+                    }, 2000, function () {
+
+
+                        openDoor();
+
+
+
+                    });
                 }
 
 
             });
 
 
+            /*
             $(window).scroll(function () {
 
 
@@ -110,6 +115,7 @@
 
 
             });
+            */
 
             $([document.documentElement, document.body]).animate({
                 scrollTop: 0
