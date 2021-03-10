@@ -41,6 +41,8 @@
         <script>
             var pos_x;
             var pos_y;
+            var actived = false;
+            var key_show = false;
 
 
 
@@ -53,14 +55,23 @@
             $('#puerta').css('left', pos_x).css('top', pos_y);
 
 
-            var actived = false;
 
 
             $('#llave').click(function () {
 
-                actived = 1;
+                if (key_show && !actived) {
 
-                $('#llave').css('position', 'fixed').css('top', parseInt($('#llave').css('top')) + 20);
+                    actived = 1;
+
+                    $('#llave').css('position', 'fixed');
+
+
+                    $([document.documentElement, document.body]).animate({
+                        scrollTop: $("#puerta").offset().top
+                    }, 2000);
+                }
+
+
             });
 
 
@@ -96,7 +107,9 @@
 
             $([document.documentElement, document.body]).delay(1000).animate({
                 scrollTop: $("#puerta").offset().top - 300
-            }, 2000);
+            }, 2000, function () {
+                key_show = true;
+            });
 
 
 

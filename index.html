@@ -30,7 +30,7 @@
 
     <script>
 
-        var stages = ['intro', 'scroll', 'water', 'cloud', 'dark', 'height'];
+        var stages = ['intro', 'scroll', 'water', 'cloud', 'dark', 'height', 'end'];
 
         var music_playing = false;
 
@@ -51,8 +51,10 @@
         }
 
 
-        if (document.location.href.indexOf('?test') > -1) {
+        if (document.location.href.indexOf('?restart') > -1) {
             current_stage = 0;
+            window.localStorage.setItem('stage', current_stage);
+            document.location = '/';
         }
 
 
