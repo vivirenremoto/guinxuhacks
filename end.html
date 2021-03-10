@@ -59,18 +59,13 @@
     <p><button id="btn_retry">REPETIR</button>
     </p>
 
-    <p><button id="btn_share">COMPARTIR</button>
+    <p><button onclick="share()">COMPARTIR</button>
     </p>
 
     <script>
 
         $('#btn_retry').click(function () {
             document.location = '/?restart';
-        });
-
-        $('#btn_share').click(function () {
-            var share_url = 'https://vivirenremoto.github.io/gintxuhacks/';
-            window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + '&tw_p=tweetbutton&url=' + encodeURIComponent(share_url));
         });
 
 

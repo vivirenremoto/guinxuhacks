@@ -27,6 +27,13 @@ function openDoor() {
 }
 
 
+
+function share() {
+    var share_url = 'https://vivirenremoto.github.io/gintxuhacks/';
+    window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + '&tw_p=tweetbutton&url=' + encodeURIComponent(share_url));
+}
+
+
 var screen_height = $(document).height();
 var screen_width = $(document).width();
 
