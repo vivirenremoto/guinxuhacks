@@ -78,7 +78,7 @@
     <div id="llave" style="z-index:2;width:200px;height:200px;position:fixed;"></div>
 
 
-    <div id="puerta" style="width:200px;height:200px;position:fixed;bottom:0;">
+    <div id="puerta" style="z-index:3;width:200px;height:200px;position:fixed;bottom:0;">
     </div>
 
 
@@ -170,7 +170,7 @@
                                 'top': $('#puerta').offset().top,
 
                             }, 1000, function () {
-                                $('#llave').css('z-index', 3).click(function () {
+                                $('#llave').css('z-index', 4).click(function () {
 
 
 
@@ -201,7 +201,7 @@
 
                         $('#arbol').removeClass('shake');
                         $('#llave').removeClass('shake');
-                    }, 2000);
+                    }, 1000);
 
 
                 }
