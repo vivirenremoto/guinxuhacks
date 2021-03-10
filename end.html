@@ -18,6 +18,7 @@
 
 
 
+    <script src="https://cdn.jsdelivr.net/gh/mathusummut/confetti.js/confetti.min.js"></script>
 
 
 </head>
@@ -85,6 +86,13 @@
         $('#btn_retry').click(function () {
             nextStage();
         });
+
+
+        confetti.start();
+
+        setTimeout(function () {
+            confetti.stop();
+        }, 2000);
 
 
     </script>
