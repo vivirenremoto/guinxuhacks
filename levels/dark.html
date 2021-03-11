@@ -121,7 +121,9 @@
         function seleccionarLlave(obj) {
             actived = 1;
 
-            if (!is_mobile) {
+            if (is_mobile) {
+                $(obj).removeClass('oculto');
+            } else {
                 $(obj).css('background-image', 'none');
             }
 
@@ -131,6 +133,8 @@
             $('#puerta').addClass('puerta_abierta').click(function () {
 
                 if (is_mobile) {
+
+                    $('#puerta').removeClass('oculto');
 
                     setTimeout(function () {
                         nextStage();
