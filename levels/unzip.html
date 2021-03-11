@@ -88,9 +88,9 @@
 
             var status = (diff * 100) / 300;
 
-            if (status < 0) {
-                status *= -1;
-            }
+            //if (status < 0) {
+            //    status *= -1;
+            //}
 
             if (!actived) {
 
@@ -100,9 +100,9 @@
 
                 }
 
-                //if (status < 0) {
-                //    status = 0;
-                //}
+                if (status < 0) {
+                    status = 0;
+                }
 
                 if (status == 100) {
 
