@@ -80,6 +80,9 @@
 
                 if (status > 100) {
                     status = 100;
+
+                } if (status < 0) {
+                    status = 0;
                 }
 
                 if (status == 100) {
