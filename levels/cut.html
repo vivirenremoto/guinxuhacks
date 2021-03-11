@@ -6,25 +6,53 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 
-    <link rel="prefetch" href="../static/cut.mp3" />
+    <link rel="prefetch" href="../static/tijera.mp3" />
 
 
     <link href="../static/main.css" rel="stylesheet">
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"
         integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+
+    <script src="http://code.jquery.com/mobile/1.5.0-rc1/jquery.mobile-1.5.0-rc1.min.js"></script>
+
+    <script src="../static/jquerymobile-swipeupdown.js"></script>
+
+
+
 </head>
 
 <body>
 
 
 
+    <style>
+        #tijera {
+            display: none;
+            top: 0;
+            bottom: 0;
+            width: 400px;
+            height: 300px;
+            position: fixed;
+            background: url('../static/cut.gif');
+            background-size: cover;
+            background-repeat: no-repeat;
+            left: 0;
+        }
+
+        @media screen and (max-width: 480px) {
+            #tijera {
+                width: 150px;
+                height: 120px;
+            }
+        }
+    </style>
 
     <script src="../static/general.js"></script>
 
 
-    <div id="tijera"
-        style="display:none;top:0;bottom:0;width:400px;height:300px;position:fixed;background:url('../static/cut.gif');background-size:cover;background-repeat:no-repeat;left:0;">
+    <div id="tijera">
     </div>
 
 
@@ -53,7 +81,7 @@
 
     <script>
 
-        var actived = 0;
+        var actived = false;
 
         var sonido_globo = document.getElementById('sonido_tijera');
 
@@ -110,6 +138,53 @@
         setTimeout(function () {
             $('#help').fadeIn('slow');
         }, 1000 * (minutes * 60));
+
+
+
+
+
+
+
+        if (is_mobile) {
+
+
+
+
+
+
+            $("body").on("swiperight", function () {
+
+                if (!actived) {
+
+                    $('#tijera').animate({ left: '+=' + (screen_width / 3) }, 1000, function () {
+
+
+
+                        if (parseInt($('#tijera').css('left') + 80) >= (screen_width / 2)) {
+                            actived = 1;
+
+                            $('#tijera').hide();
+
+                            sonido_tijera.play();
+
+                            $('#cuerda').css('bottom', 'inherit').css('height', '15%');
+
+
+
+                            $('#llave').animate({
+                                top: $('#puerta').css('top')
+                            }, 1000, function () {
+                                openDoor();
+                            });
+
+                        }
+                    });
+                }
+
+            });
+
+
+        }
     </script>
 
 

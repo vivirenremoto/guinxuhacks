@@ -67,6 +67,18 @@
         td.oculto#puerta:hover {
             background-image: url('../static/puerta.png');
         }
+
+
+        @media screen and (max-width: 480px) {
+            #llave {
+                background-size: 80% auto;
+            }
+
+            #puerta {
+
+                background-size: 80% auto;
+            }
+        }
     </style>
 
 
@@ -96,6 +108,13 @@
         var cells = rows * cols;
         var actived = false;
 
+
+        if (is_mobile) {
+            rows = 3;
+            cols = 3;
+            cells = rows * cols;
+
+        }
 
 
 
@@ -128,8 +147,16 @@
         }
 
         var half = parseInt((cells - 1) / 2);
-        var rand1 = randomNumber(0, half);
-        var rand2 = randomNumber(half + 1, cells - 1);
+
+
+        if (half % 2 == 0) {
+            var rand1 = randomNumber(0, half - 1);
+            var rand2 = randomNumber(half + 1, cells - 1);
+        } else {
+            var rand1 = randomNumber(0, half - 1);
+            var rand2 = randomNumber(half, cells - 1);
+        }
+
 
 
 

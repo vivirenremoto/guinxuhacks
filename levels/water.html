@@ -6,13 +6,15 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 
-    <link rel="prefetch" href="static/agua.png" />
+    <link rel="prefetch" href="../static/agua.png" />
     <link href="../static/main.css" rel="stylesheet">
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"
         integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 
     <script src="http://code.jquery.com/mobile/1.5.0-rc1/jquery.mobile-1.5.0-rc1.min.js"></script>
+
+    <script src="../static/jquerymobile-swipeupdown.js"></script>
 
 </head>
 
@@ -123,28 +125,51 @@
         }, 1000 * (minutes * 60));
 
 
-        // mobile
 
-        if (screen_width < 500) {
-            $("#agua").on("swipeup", function () {
+        if (is_mobile) {
+            $("body").on("swipeup", function () {
+
+
+
+                if (!actived) {
+                    var pos_y1 = parseInt($('#llave').css('top'));
+                    var pos_y2 = parseInt($('#puerta').css('height')) + 20;
+
+                    $("#agua").animate({
+                        height: '+=' + (screen_height / 4)
+                    }, 1000);
+
+                    $("#llave").animate({
+                        top: '-=' + (screen_height / 4)
+                    }, 1000, function () {
+
+
+                        if (pos_y2 >= pos_y1) {
+                            actived = 1;
+
+
+                            openDoor();
+                        }
+
+
+                    });
+
+
+                }
+            });
+
+
+            $("body").on("swipedown", function () {
+
                 $("#agua").animate({
-                    height: '+=200'
+                    height: '-=' + (screen_height / 4)
                 }, 1000);
 
                 $("#llave").animate({
-                    top: '-=200'
+                    top: '+=' + (screen_height / 4)
                 }, 1000);
             });
 
-            $("#agua").on("swipedown", function () {
-                $("#agua").animate({
-                    height: '-=200'
-                }, 1000);
-
-                $("#llave").animate({
-                    top: '+=200'
-                }, 1000);
-            });
         }
 
     </script>

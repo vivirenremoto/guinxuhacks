@@ -37,9 +37,11 @@ function share() {
 
 var screen_height = $(document).height();
 var screen_width = $(document).width();
+var is_mobile = screen_width < 500;
 
 
-$('body').click(function () {
-
-    window.parent.$('body').trigger('play_music');
-});
+if (window.parent) {
+    $('body').click(function () {
+        window.parent.$('body').trigger('play_music');
+    });
+}
