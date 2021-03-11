@@ -218,10 +218,7 @@
 
 
 
-        var minutes = 5;
-        setTimeout(function () {
-            $('#help').fadeIn('slow');
-        }, 1000 * (minutes * 60));
+
 
 
 
@@ -231,7 +228,7 @@
             $('#arbol').css('left', -40);
 
 
-            $('#puerta').css('left', screen_width-200);
+            $('#puerta').css('left', screen_width - 200);
 
 
             $('#llave').css('left', pos_x - 225);
@@ -316,6 +313,13 @@
                 }
 
             });
+
+        } else {
+
+            var minutes = 5;
+            setTimeout(function () {
+                $('#help').fadeIn('slow');
+            }, 1000 * (minutes * 60));
 
         }
     </script>

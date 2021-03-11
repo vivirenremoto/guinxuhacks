@@ -134,10 +134,6 @@
 
 
 
-        var minutes = 5;
-        setTimeout(function () {
-            $('#help').fadeIn('slow');
-        }, 1000 * (minutes * 60));
 
 
 
@@ -159,7 +155,7 @@
 
                     actived = 1;
 
-                    setTimeout(function(){
+                    setTimeout(function () {
 
                         $('#cuerda').css('bottom', 'inherit').css('height', '15%');
 
@@ -188,6 +184,14 @@
             });
 
 
+        } else {
+
+
+
+            var minutes = 5;
+            setTimeout(function () {
+                $('#help').fadeIn('slow');
+            }, 1000 * (minutes * 60));
         }
     </script>
 

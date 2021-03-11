@@ -81,11 +81,6 @@
 
 
 
-        var minutes = 5;
-        setTimeout(function () {
-            $('#help').fadeIn('slow');
-        }, 1000 * (minutes * 60));
-
 
 
 
@@ -101,6 +96,14 @@
                     left: '+=200'
                 }, 1000);
             });
+
+        } else {
+            var minutes = 5;
+            setTimeout(function () {
+                $('#help').fadeIn('slow');
+            }, 1000 * (minutes * 60));
+
+
         }
 
     </script>

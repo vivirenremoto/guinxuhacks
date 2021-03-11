@@ -55,11 +55,28 @@
         h1 {
             margin-top: 0;
         }
+
+
+        #help_mobile {
+            display: none;
+        }
+
+        @media screen and (min-width: 480px) {
+
+            #help_desktop {
+                display: none;
+            }
+
+            #help_mobile {
+                display: block;
+            }
+
+        }
     </style>
 
 
 
-    <script src="../static/general.js"></script>
+    <script src="../static/general.js?v=2"></script>
 
 
     <a href="https://twitter.com/vivirenremoto" target="_blank">by @vivirenremoto</a>
@@ -74,13 +91,22 @@
         nivel.
     </p>
 
-    <p>A diferencia de otros juegos en este tienes que "hackearlo", por las mécanicas solo puedes usar
-        un ordenador ya que en algunos niveles tendrás que desplazarte por la página o
-        cambiar el tamaño de la ventana del navegador en horizontal o vertical.</p>
 
-    <p>Usa la imaginación para superar los niveles, si te atascas a los 5 minutos te aparecerá una <u>pista</u>
-        <img src="../static/help.png" valign="absmiddle" width="25" height="25">.
-    </p>
+    <div id="help_desktop">
+        <p>A diferencia de otros juegos en este tienes que "hackearlo", en algunos niveles tendrás que desplazarte por
+            la página o ambiar el tamaño de la ventana del navegador en horizontal o vertical.</p>
+
+        <p>Usa la imaginación para superar los niveles, si te atascas a los 5 minutos te aparecerá una <u>pista</u>
+            <img src="../static/help.png" valign="absmiddle" width="25" height="25">.
+        </p>
+    </div>
+
+    <div id="help_mobile">
+        <p>A diferencia de otros juegos en este tienes que "hackearlo", en algunos niveles tendrás que desplazarte por
+            la página o deslizar el dedo en horizontal o vertical.</p>
+
+
+    </div>
 
 
     <button onclick="share()">COMPARTIR</button>
@@ -140,10 +166,8 @@
         });
 
 
+        $('#help').delay(1000 * 10).fadeIn('slow');
 
-        setTimeout(function () {
-            $('#help').fadeIn('slow');
-        }, 1000 * 10);
 
 
     </script>

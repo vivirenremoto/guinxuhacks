@@ -192,12 +192,12 @@
 
 
 
-
-        var minutes = 5;
-        setTimeout(function () {
-            $('#help').fadeIn('slow');
-        }, 1000 * (minutes * 60));
-
+        if (!is_mobile) {
+            var minutes = 5;
+            setTimeout(function () {
+                $('#help').fadeIn('slow');
+            }, 1000 * (minutes * 60));
+        }
     </script>
 
 
