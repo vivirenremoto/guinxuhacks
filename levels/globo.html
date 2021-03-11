@@ -107,13 +107,13 @@
 
 
 
-                            $('#llave').animate({
+                            $('#llave').css('position', 'absolute').animate({
                                 'top': screen_height - 200
-                            }, 1000, function () {
+                            }, 2000, function () {
 
-                                setTimeout(function () {
-                                    openDoor();
-                                }, 1000);
+
+                                openDoor();
+
                             });
 
 
@@ -155,7 +155,7 @@
 
                 $([document.documentElement, document.body]).delay(1000).animate({
                     scrollTop: (screen_height / 1.5) - 200
-                }, delay, function () {
+                }, 700, function () {
 
 
                     $('#llave').show().animate({
