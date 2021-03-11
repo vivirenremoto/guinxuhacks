@@ -91,13 +91,13 @@
 
         if (is_mobile) {
             $("body").on("swipeleft", function () {
-                $(this).animate({
+                $("#nube").animate({
                     left: '-=200'
                 }, 1000);
             });
 
             $("body").on("swiperight", function () {
-                $(this).animate({
+                $("#nube").animate({
                     left: '+=200'
                 }, 1000);
             });
