@@ -111,59 +111,64 @@
         $(window).resize(function () {
 
 
-            clearInterval(resize_timer);
+            if (!actived) {
+
+
+                clearInterval(resize_timer);
 
 
 
 
-            var screen_height_aux = $(document).height();
+                var screen_height_aux = $(document).height();
 
 
-            if (screen_height_aux > screen_height) {
-                var diff = screen_height - screen_height_aux;
+                if (screen_height_aux > screen_height) {
+                    var diff = screen_height - screen_height_aux;
 
-            } else {
-                var diff = screen_height_aux - screen_height;
+                } else {
+                    var diff = screen_height_aux - screen_height;
 
-            }
-
-
-
-            resize_timer = setTimeout(function () {
-                screen_height = screen_height_aux;
-            }, 500);
+                }
 
 
-            var new_height = cat_height - (diff * 2.5);
+
+                resize_timer = setTimeout(function () {
+                    screen_height = screen_height_aux;
+                }, 500);
 
 
-            if (new_height > 400) {
-                new_height = 400;
-            }
-
-            if (new_height < 80) {
-                new_height = 80;
-            }
-
-            var new_width = ((new_height * cat_width) / cat_height);
+                var new_height = cat_height - (diff * 2.5);
 
 
-            $("#cat").css('height', new_height).css('width', new_width);
+                if (new_height > 400) {
+                    new_height = 400;
+                }
+
+                if (new_height < 80) {
+                    new_height = 80;
+                }
+
+                var new_width = ((new_height * cat_width) / cat_height);
 
 
-            if (!actived && ((dog_height * 1.5) < new_height)) {
+                $("#cat").css('height', new_height).css('width', new_width);
 
-                actived = 1;
 
-                $('#llave').css('cursor', 'pointer');
+                if (((dog_height * 2) < new_height)) {
 
-                $('#dog').animate({
-                    left: '+=' + screen_width
-                }, 3000);
+                    actived = 1;
 
-                sonido_perro.pause();
+                    $('#llave').css('cursor', 'pointer');
 
-                sonido_perro_cry.play();
+                    $('#dog').animate({
+                        left: '+=' + screen_width
+                    }, 3000);
+
+                    sonido_perro.pause();
+
+                    sonido_perro_cry.play();
+                }
+
             }
 
 
