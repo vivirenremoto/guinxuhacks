@@ -229,11 +229,14 @@
         if (is_mobile) {
 
 
+            $('#puerta').css('left', screen_width-200);
+
+
             $('#llave').css('left', pos_x - 200);
 
 
 
-            $("body").on("swiperight", function () {
+            $("body").on("swipeleft", function () {
 
 
                 if (!shake) {
@@ -249,7 +252,7 @@
                         sonido_shake.play();
 
                         $("#llave").animate({
-                            left: '+=' + 25
+                            left: '-=' + 25
                         }, 1000, function () {
 
 
