@@ -119,12 +119,21 @@
             if (!actived) {
                 actived = true;
 
-                $('#llave').css('top', $('#puerta').offset().top).css('position', 'fixed').animate({
-                    left: $('#puerta').offset().left,
-                }, 1000, function () {
 
+                if (screen_width > 800) {
+
+                    $('#llave').css('top', $('#puerta').offset().top).css('position', 'fixed').animate({
+                        left: $('#puerta').offset().left,
+                    }, 1000, function () {
+
+                        openDoor();
+                    });
+                } else {
                     openDoor();
-                });
+
+                }
+
+
 
 
             }
