@@ -166,8 +166,9 @@
         });
 
 
-        $('#help').delay(1000 * 10).fadeIn('slow');
-
+        if (!is_mobile) {
+            $('#help').delay(1000 * 10).fadeIn('slow');
+        }
 
 
     </script>
