@@ -63,6 +63,20 @@
 
 
 
+        $('#llave').click(function () {
+            if (actived) {
+                $('#llave').delay(500).animate({
+                    'top': parseInt($('#puerta').css('top')) + 100
+                }, 1000, function () {
+
+
+
+
+
+                    openDoor();
+                });
+            }
+        })
 
 
 
@@ -91,16 +105,7 @@
 
                     $('#unzip').hide();
 
-                    $('#llave').delay(500).animate({
-                        'top': parseInt($('#puerta').css('top')) + 100
-                    }, 1000, function () {
 
-
-
-
-
-                        openDoor();
-                    });
 
                 } else {
 
