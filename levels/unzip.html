@@ -65,7 +65,7 @@
 
         $('#llave').click(function () {
             if (actived) {
-                $('#llave').delay(500).animate({
+                $('#llave').animate({
                     'top': parseInt($('#puerta').css('top')) + 100
                 }, 1000, function () {
 
@@ -88,6 +88,9 @@
 
             var status = (diff * 100) / 300;
 
+            if (status < 0) {
+                status *= -1;
+            }
 
             if (!actived) {
 
@@ -95,9 +98,11 @@
                 if (status > 100) {
                     status = 100;
 
-                } if (status < 0) {
-                    status = 0;
                 }
+
+                //if (status < 0) {
+                //    status = 0;
+                //}
 
                 if (status == 100) {
 
