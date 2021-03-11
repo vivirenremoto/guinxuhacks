@@ -42,7 +42,8 @@
         </div>
 
 
-        <div id="llave" style="z-index:1;left:50%;margin-left:-100px;width:200px;height:200px;position:absolute;">
+        <div id="llave"
+            style="cursor:default;z-index:1;left:50%;margin-left:-100px;width:200px;height:200px;position:absolute;">
 
             <img id="globo" src="../static/globo.png"
                 style="image-rendering: crisp-edges;margin-left:41px;position:absolute;margin-top:-200px;height:200px;">
@@ -148,15 +149,26 @@
                 $([document.documentElement, document.body]).animate({
                     scrollTop: screen_height - 200
                 }, delay, function () {
-                    $('#llave').hide().css('position', 'fixed').css('top', 220);
+                    $('#llave').hide().css('position', 'fixed').css('top', -220);
                 });
 
 
                 $([document.documentElement, document.body]).delay(1000).animate({
                     scrollTop: (screen_height / 1.5) - 200
                 }, delay, function () {
-                    $('#llave').show();
-                    key_show = true;
+
+
+                    $('#llave').show().animate({
+                        top: 220
+                    }, 1000, function () {
+
+                        key_show = true;
+                    });
+
+
+
+
+
                 });
 
             }, 2000);
