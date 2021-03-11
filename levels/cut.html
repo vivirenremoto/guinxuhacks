@@ -89,10 +89,9 @@
 
 
 
-        $('#tijera').delay(1000).animate({ left: 0 }, 1000);
+        $('#tijera').delay(1000).animate({ left: 0 }, 1000, function () {
 
 
-        setTimeout(function () {
 
             $(window).resize(function () {
 
@@ -130,7 +129,68 @@
             });
 
 
-        }, 2000);
+
+
+
+
+
+            if (is_mobile) {
+
+
+
+
+
+
+                $("body").on("swiperight", function () {
+
+                    if (!actived) {
+
+
+                        actived = 1;
+
+                        setTimeout(function () {
+
+                            $('#cuerda').css('bottom', 'inherit').css('height', 60);
+
+
+
+                            sonido_tijera.play();
+
+
+
+
+
+
+
+                            $('#llave').animate({
+                                top: $('#puerta').css('top')
+                            }, 1000, function () {
+                                openDoor();
+                            });
+
+                        }, 500);
+
+
+                        $('#tijera').animate({ left: '+=' + screen_width }, 1000);
+                    }
+
+                });
+
+
+            } else {
+
+
+
+                var minutes = 5;
+                setTimeout(function () {
+                    $('#help').fadeIn('slow');
+                }, 1000 * (minutes * 60));
+            }
+
+
+
+
+        });
 
 
 
@@ -140,60 +200,6 @@
 
 
 
-
-
-        if (is_mobile) {
-
-
-
-
-
-
-            $("body").on("swiperight", function () {
-
-                if (!actived) {
-
-
-                    actived = 1;
-
-                    setTimeout(function () {
-
-                        $('#cuerda').css('bottom', 'inherit').css('height', '15%');
-
-
-
-                        sonido_tijera.play();
-
-
-
-
-
-
-
-                        $('#llave').animate({
-                            top: $('#puerta').css('top')
-                        }, 1000, function () {
-                            openDoor();
-                        });
-
-                    }, 500);
-
-
-                    $('#tijera').animate({ left: '+=' + screen_width }, 1000);
-                }
-
-            });
-
-
-        } else {
-
-
-
-            var minutes = 5;
-            setTimeout(function () {
-                $('#help').fadeIn('slow');
-            }, 1000 * (minutes * 60));
-        }
     </script>
 
 
