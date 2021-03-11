@@ -65,6 +65,7 @@
 
         <script>
             var pos_y;
+            var actived = false;
 
             var key_show = false;
 
@@ -85,12 +86,14 @@
 
             $(window).scroll(function () {
 
-                if (key_show) {
+                if (!actived && key_show) {
                     var current_scroll = $(window).scrollTop();
 
 
 
                     if (current_scroll <= 66) {
+
+                        actived = 1;
 
 
                         sonido_globo.play();
@@ -106,7 +109,10 @@
                             $('#llave').animate({
                                 'top': screen_height - 200
                             }, 1000, function () {
-                                openDoor();
+
+                                setTimeout(function () {
+                                    openDoor();
+                                }, 1000);
                             });
 
 
@@ -129,6 +135,14 @@
             var delay = 1500;
 
 
+
+
+
+            $([document.documentElement, document.body]).animate({
+                scrollTop: 0
+            }, 1);
+
+
             setTimeout(function () {
 
                 $([document.documentElement, document.body]).animate({
@@ -146,6 +160,8 @@
                 });
 
             }, 2000);
+
+
 
 
 
