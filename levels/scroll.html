@@ -57,7 +57,7 @@
 
             pos_y = (screen_height / 2) - 100;
 
-            $('#llave').css('top', 200).css('position', 'absolute');
+            $('#llave').css('top', screen_height - 400).css('position', 'absolute');
             $('#puerta').css('top', pos_y);
 
 
@@ -69,11 +69,11 @@
 
                     actived = 1;
 
-                    $('#llave').css('position', 'fixed');
+                    $('#llave').css('position', 'fixed').css('top', 'inherit').css('bottom', 200);
 
 
                     $([document.documentElement, document.body]).animate({
-                        scrollTop: $("#puerta").offset().top - 200
+                        scrollTop: $("#puerta").offset().top - (200 + 400)
                     }, 2000, function () {
 
 
@@ -118,7 +118,7 @@
             */
 
             $([document.documentElement, document.body]).animate({
-                scrollTop: 0
+                scrollTop: screen_height
             }, 1);
 
 
