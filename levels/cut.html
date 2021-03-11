@@ -6,6 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 
+    <link rel="prefetch" href="../static/cut.mp3" />
 
 
     <link href="../static/main.css" rel="stylesheet">
@@ -23,7 +24,7 @@
 
 
     <div id="tijera"
-        style="top:0;bottom:0;width:400px;height:213px;position:fixed;background:url('../static/cut.png');background-size:cover;background-repeat:no-repeat;left:0;">
+        style="display:none;top:0;bottom:0;width:400px;height:300px;position:fixed;background:url('../static/cut.gif');background-size:cover;background-repeat:no-repeat;left:0;">
     </div>
 
 
@@ -46,42 +47,62 @@
 
 
 
+    <audio id="sonido_tijera">
+        <source src="../static/tijera.mp3" type="audio/mp3">
+    </audio>
 
     <script>
 
         var actived = 0;
 
-
-
-        $(window).resize(function () {
-
-
-
-
-            var tijera_right = parseInt($('#tijera').css('right')) + 140;
-            var cuerda_left = parseInt($('#cuerda').css('left'));
-
-            if (!actived && tijera_right <= cuerda_left) {
-                actived = 1;
-
-                $('#cuerda').css('bottom', 'inherit').css('height', '15%');
-
-
-
-                $('#llave').animate({
-                    top: $('#puerta').css('top')
-                }, 1000, function () {
-                    openDoor();
-                });
-
-
-            }
+        var sonido_globo = document.getElementById('sonido_tijera');
 
 
 
 
+        $('#tijera').delay(1000).fadeIn('slow');
 
-        });
+
+        setTimeout(function () {
+
+            $(window).resize(function () {
+
+
+
+
+                var tijera_right = parseInt($('#tijera').css('right')) + 125;
+                var cuerda_left = parseInt($('#cuerda').css('left'));
+
+                if (!actived && tijera_right <= cuerda_left) {
+                    actived = 1;
+
+
+                    $('#tijera').hide();
+
+                    sonido_tijera.play();
+
+                    $('#cuerda').css('bottom', 'inherit').css('height', '15%');
+
+
+
+                    $('#llave').animate({
+                        top: $('#puerta').css('top')
+                    }, 1000, function () {
+                        openDoor();
+                    });
+
+
+                }
+
+
+
+
+
+            });
+
+
+        }, 2000);
+
 
 
 
