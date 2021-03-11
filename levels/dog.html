@@ -134,14 +134,14 @@
 
                 resize_timer = setTimeout(function () {
                     screen_height = screen_height_aux;
-                }, 500);
+                }, 1000);
 
 
-                var new_height = cat_height - (diff * 2.5);
+                var new_height = cat_height - (diff * 3);
 
 
-                if (new_height > 400) {
-                    new_height = 400;
+                if (new_height > 420) {
+                    new_height = 420;
                 }
 
                 if (new_height < 80) {
@@ -154,7 +154,8 @@
                 $("#cat").css('height', new_height).css('width', new_width);
 
 
-                if (((dog_height * 2) < new_height)) {
+                if (((dog_height * 3) <= new_height)) {
+
 
                     actived = 1;
 
