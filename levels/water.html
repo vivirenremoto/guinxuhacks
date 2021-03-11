@@ -43,6 +43,10 @@
         var pos_x;
         var pos_y;
         var actived = false;
+        var bg_position = 0;
+        var resize_timer;
+
+
 
 
 
@@ -54,9 +58,6 @@
 
 
         $('#llave').css('top', screen_height - (200 + 200));
-
-
-        var bg_position = 0;
 
 
         setInterval(function () {
@@ -74,15 +75,21 @@
         $(window).resize(function () {
 
 
-
+            clearInterval(resize_timer);
 
             var screen_width_aux = $(document).width();
             var diff = screen_width - screen_width_aux;
 
 
-
+            resize_timer = setTimeout(function () {
+                screen_width = screen_width_aux;
+            }, 500);
 
             diff += 200;
+
+            if (diff < 200) {
+                diff = 200;
+            }
 
 
             $("#agua").css('height', diff);

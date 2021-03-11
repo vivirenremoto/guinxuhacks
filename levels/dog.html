@@ -72,6 +72,9 @@
         sonido_perro_cry.volume = 0.4;
 
 
+        var resize_timer;
+
+
         $('#llave').click(function () {
 
             if (actived) {
@@ -103,12 +106,23 @@
         });
 
 
+
+
         $(window).resize(function () {
+
+
+            clearInterval(resize_timer);
+
+
 
 
             var screen_height_aux = $(document).height();
             var diff = screen_height - screen_height_aux;
 
+
+            resize_timer = setTimeout(function () {
+                screen_height = screen_height_aux;
+            }, 500);
 
 
             var new_height = cat_height - (diff * 2.5);
