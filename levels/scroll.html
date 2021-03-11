@@ -34,7 +34,7 @@
 
 
 
-        <div id="llave" style="z-index:1;left:50%;margin-left:-100px;width:200px;height:200px;position:fixed;"></div>
+        <div id="llave" style="z-index:1;left:50%;margin-left:-100px;width:200px;height:200px;position:absolute;"></div>
 
 
         <div id="puerta" style="width:200px;left:50%;margin-left:-100px;height:200px;position:absolute;">
@@ -57,7 +57,7 @@
 
             pos_y = (screen_height / 2) - 100;
 
-            $('#llave').css('top', screen_height - 400).css('position', 'absolute');
+            $('#llave').css('top', screen_height - 500).css('position', 'absolute');
             $('#puerta').css('top', pos_y);
 
 
@@ -69,15 +69,20 @@
 
                     actived = 1;
 
-                    $('#llave').css('position', 'fixed').css('top', 'inherit').css('bottom', 200);
+
+
+                    $('#llave').animate({
+                        top: pos_y
+                    }, 2000, function () {
+                        //openDoor();
+                    });
 
 
                     $([document.documentElement, document.body]).animate({
-                        scrollTop: $("#puerta").offset().top - (200 + 400)
+                        scrollTop: pos_y - 500
                     }, 2000, function () {
-
-
                         openDoor();
+
 
 
 
