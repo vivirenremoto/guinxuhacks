@@ -56,7 +56,7 @@
 
     <script>
 
-        var actived = 0;
+        var actived = false;
 
 
         var cat_height = parseInt($('#cat').css('height'));
@@ -96,7 +96,7 @@
 
 
 
-            if (!music_playing) {
+            if (!music_playing && !actived) {
                 music_playing = true;
                 sonido_perro.play();
             }
