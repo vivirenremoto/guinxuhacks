@@ -156,29 +156,33 @@
 
                 if (!actived) {
 
-                    $('#tijera').animate({ left: '+=' + (screen_width / 3) }, 1000, function () {
+
+                    actived = 1;
+
+                    setTimeout(function(){
+
+                        $('#cuerda').css('bottom', 'inherit').css('height', '15%');
 
 
 
-                        if (parseInt($('#tijera').css('left') + 80) >= (screen_width / 2)) {
-                            actived = 1;
-
-                            $('#tijera').hide();
-
-                            sonido_tijera.play();
-
-                            $('#cuerda').css('bottom', 'inherit').css('height', '15%');
+                        sonido_tijera.play();
 
 
 
-                            $('#llave').animate({
-                                top: $('#puerta').css('top')
-                            }, 1000, function () {
-                                openDoor();
-                            });
 
-                        }
-                    });
+
+
+
+                        $('#llave').animate({
+                            top: $('#puerta').css('top')
+                        }, 1000, function () {
+                            openDoor();
+                        });
+
+                    }, 500);
+
+
+                    $('#tijera').animate({ left: '+=' + screen_width }, 1000);
                 }
 
             });
