@@ -171,7 +171,7 @@
 
                     $('#dog').animate({
                         left: '+=' + (screen_width / 2)
-                    }, 3000);
+                    }, 2000);
 
                     sonido_perro.pause();
 
@@ -235,9 +235,18 @@
 
                             $('#dog').animate({
                                 left: '+=' + screen_width
-                            }, 3000, function () {
+                            }, 2000, function () {
 
-                                $('#llave').show();
+
+
+                                $('#cat').animate({
+                                    width: 100,
+                                    height: 80
+                                }, 1000, function () {
+
+                                    $('#llave').show();
+                                });
+
 
                             });
 
