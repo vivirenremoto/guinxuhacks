@@ -120,14 +120,26 @@
 
         function seleccionarLlave(obj) {
             actived = 1;
-            $(obj).css('background-image', 'none');
 
+            if (!is_mobile) {
+                $(obj).css('background-image', 'none');
+            }
 
 
             window.parent.$('body').trigger('open_door');
 
             $('#puerta').addClass('puerta_abierta').click(function () {
-                nextStage();
+
+                if (is_mobile) {
+
+                    setTimeout(function () {
+                        nextStage();
+                    }, 1000);
+
+                } else {
+                    nextStage();
+                }
+
             });
 
 
