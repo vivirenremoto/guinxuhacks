@@ -1,3 +1,25 @@
+* {
+
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Safari */
+    -khtml-user-select: none;
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Old versions of Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently
+                    supported by Chrome, Edge, Opera and Firefox */
+}
+
+body {
+    touch-action: pan-x pan-y;
+}
+
+
 #llave{background-image:url('llave.png');background-size:200px 200px;background-repeat:no-repeat;background-position:center center;cursor:pointer;}
 
 #puerta{cursor: not-allowed;background-image:url('puerta.png');background-size:200px 200px;background-repeat:no-repeat;background-position:center center;}

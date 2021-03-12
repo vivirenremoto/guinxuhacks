@@ -21,6 +21,15 @@
 
 <body style="overflow:hidden;">
 
+    <style>
+        @media screen and (min-width: 480px) {
+            #llave {
+                position: fixed;
+                bottom: 0;
+            }
+        }
+    </style>
+
 
     <script src="../static/general.js"></script>
 
@@ -61,7 +70,6 @@
 
 
 
-        $('#llave').css('top', screen_height - 200);
 
 
 
@@ -75,7 +83,10 @@
             screen_height = $(document).height();
 
 
-            $("#llave").css('top', screen_height - 200);
+            console.log(screen_height);
+
+
+            //$("#llave").css('top', screen_height - 200);
 
 
 
@@ -105,6 +116,10 @@
 
 
         if (is_mobile) {
+
+            $('#llave').css('top', screen_height - 200);
+
+
             $("body").on("swipeup", function () {
 
 
