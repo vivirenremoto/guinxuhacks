@@ -23,7 +23,7 @@
 
 </head>
 
-<body>
+<body style="overflow:hidden;">
 
 
 
@@ -40,12 +40,10 @@
             left: -400px;
         }
 
-        @media screen and (max-width: 480px) {
-            #tijera {
-                width: 150px;
-                height: 120px;
-                left: -150px;
-            }
+        #tijera.tijera_mobile {
+            width: 150px;
+            height: 120px;
+            left: -150px;
         }
     </style>
 
@@ -86,6 +84,17 @@
 
         var sonido_globo = document.getElementById('sonido_tijera');
 
+
+
+
+        if (is_mobile) {
+
+
+
+
+            $("#tijera").addClass('tijera_mobile');
+
+        }
 
 
 
@@ -135,8 +144,6 @@
 
 
             if (is_mobile) {
-
-
 
 
 
