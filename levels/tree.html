@@ -74,6 +74,23 @@
                 transform: translate(1px, -2px) rotate(-1deg);
             }
         }
+
+
+        #puerta {
+            z-index: 3;
+            width: 200px;
+            height: 200px;
+            position: fixed;
+            bottom: 0;
+        }
+
+        @media screen and (max-width: 480px) {
+            #puerta {
+                bottom: auto !important;
+                top: 0 !important;
+                left: 0 !important;
+            }
+        }
     </style>
 
     <script src="../static/general.js"></script>
@@ -86,7 +103,7 @@
     <div id="llave" style="z-index:2;width:200px;height:200px;position:fixed;"></div>
 
 
-    <div id="puerta" style="z-index:3;width:200px;height:200px;position:fixed;bottom:0;">
+    <div id="puerta">
     </div>
 
 
@@ -122,7 +139,8 @@
 
         $('#llave').click(function () {
             $(this).animate({
-                'left': $('#puerta').css('left')
+                'left': $('#puerta').css('left'),
+                'top': $('#puerta').css('top')
             }, 1000, function () {
 
 
@@ -162,7 +180,7 @@
 
 
                     $('#llave').animate({
-                        'left': '-=30px'
+                        'left': '-=25'
                     }, 1000, function () {
 
 
@@ -256,7 +274,7 @@
                         sonido_shake.play();
 
                         $("#llave").animate({
-                            left: '-=' + 25
+                            left: '-=25'
                         }, 1000, function () {
 
 
@@ -264,6 +282,7 @@
                             if (touches_current == touches_max) {
                                 actived = true;
 
+                                $('#llave').animate({ left: 0 }, 1);
 
                                 $('#arbol').removeClass('shake');
                                 $('#llave').removeClass('shake');
@@ -279,6 +298,7 @@
 
                                         $('#llave').animate({
                                             left: $('#puerta').css('left'),
+                                            top: $('#puerta').css('top')
                                         }, 1000, function () {
                                             openDoor();
                                         });
